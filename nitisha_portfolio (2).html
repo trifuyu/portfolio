@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nitisha Sharma | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --em:#10b981;--em2:#059669;--em3:#34d399;--em-glow:rgba(16,185,129,0.25);
+  --bg:#0a0f0d;--bg2:#0d1410;--bg3:#111a15;
+  --glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.07);
+  --border-g:rgba(255,255,255,0.08);--border-em:rgba(16,185,129,0.3);
+  --txt:#f0faf5;--txt2:#a0bfaf;--txt3:#6b9980;
+  --pink:#f472b6;
+  --serif:'Cormorant Garamond',serif;--sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);overflow-x:hidden;min-height:100vh}
+
+/* animated background orbs */
+.orb-wrap{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.35;animation:float 12s ease-in-out infinite}
+.orb1{width:500px;height:500px;background:radial-gradient(circle,#059669,transparent 70%);top:-100px;left:-100px;animation-delay:0s}
+.orb2{width:400px;height:400px;background:radial-gradient(circle,#f472b6,transparent 70%);top:30%;right:-80px;animation-delay:-4s}
+.orb3{width:350px;height:350px;background:radial-gradient(circle,#065f46,transparent 70%);bottom:10%;left:20%;animation-delay:-8s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-20px) scale(1.05)}66%{transform:translate(-20px,30px) scale(0.95)}}
+
+/* navbar */
+nav{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:100;
+  background:rgba(10,15,13,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--border-g);border-radius:50px;padding:12px 28px;
+  display:flex;align-items:center;gap:28px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.4);
+  white-space:nowrap;
+}
+nav a{font-size:13px;font-weight:400;color:var(--txt2);text-decoration:none;letter-spacing:0.5px;transition:color 0.3s;cursor:pointer}
+nav a:hover{color:var(--em)}
+.nav-dot{width:6px;height:6px;background:var(--em);border-radius:50%;box-shadow:0 0 8px var(--em);flex-shrink:0}
+
+/* sections */
+section{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 24px 80px}
+
+/* hero */
+.hero{text-align:center}
+
+.hero-tag{font-size:11px;letter-spacing:4px;color:var(--em);text-transform:uppercase;margin-bottom:14px;font-weight:400}
+h1.name{font-family:var(--serif);font-size:clamp(46px,8vw,76px);font-weight:300;line-height:1.05;letter-spacing:-1px;color:var(--txt);margin-bottom:8px}
+h1.name em{font-style:italic;color:var(--em)}
+.hero-sub{font-size:15px;color:var(--txt2);font-weight:300;letter-spacing:1.5px;margin-bottom:32px}
+
+.hero-pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px}
+.pill{
+  padding:7px 18px;border-radius:50px;font-size:12px;letter-spacing:0.5px;font-weight:400;
+  background:var(--glass2);border:1px solid var(--border-g);color:var(--txt2);
+  backdrop-filter:blur(10px);transition:all 0.3s;
+}
+.pill:hover{border-color:var(--border-em);color:var(--em);background:rgba(16,185,129,0.08);transform:translateY(-2px)}
+.pill.pink{border-color:rgba(244,114,182,0.3);color:var(--pink)}
+.pill.pink:hover{background:rgba(244,114,182,0.08);border-color:rgba(244,114,182,0.5)}
+
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{padding:13px 32px;border-radius:50px;font-size:13px;font-weight:500;letter-spacing:0.5px;cursor:pointer;border:none;transition:all 0.35s;text-decoration:none;display:inline-block}
+.btn-em{background:linear-gradient(135deg,var(--em2),var(--em));color:#fff;box-shadow:0 4px 24px rgba(16,185,129,0.35)}
+.btn-em:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(16,185,129,0.55)}
+.btn-outline{background:var(--glass);border:1px solid var(--border-g);color:var(--txt2);backdrop-filter:blur(10px)}
+.btn-outline:hover{border-color:var(--border-em);color:var(--em);background:rgba(16,185,129,0.06);transform:translateY(-3px)}
+
+/* glass card */
+.glass-card{
+  background:var(--glass);border:1px solid var(--border-g);border-radius:20px;
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  padding:32px;transition:all 0.4s;position:relative;overflow:hidden;
+}
+.glass-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent);
+}
+.glass-card:hover{
+  border-color:var(--border-em);transform:translateY(-5px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.35),0 0 40px rgba(16,185,129,0.07);
+}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:840px;width:100%}
+.about-main{grid-column:1/-1}
+.section-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--em);margin-bottom:18px;font-weight:500}
+h2.sec-title{font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:300;line-height:1.2;margin-bottom:16px}
+h2.sec-title em{font-style:italic;color:var(--em)}
+.about-text{font-size:14.5px;line-height:1.9;color:var(--txt2);font-weight:300}
+.stat-num{font-family:var(--serif);font-size:44px;font-weight:300;color:var(--em);line-height:1;margin-bottom:6px}
+.stat-label{font-size:12px;color:var(--txt3);letter-spacing:0.5px}
+
+/* experience */
+.exp-wrap{max-width:740px;width:100%}
+.exp-item{display:grid;grid-template-columns:130px 1fr;gap:0 24px;margin-bottom:12px}
+.exp-timeline{text-align:right;padding-top:6px}
+.exp-year{font-size:11px;color:var(--txt3);letter-spacing:1px;margin-bottom:8px}
+.exp-dot{width:10px;height:10px;border-radius:50%;background:var(--em);margin:4px 0 8px auto;box-shadow:0 0 12px var(--em);position:relative;z-index:1}
+.exp-line{width:1px;background:linear-gradient(var(--border-em),transparent);height:calc(100% - 26px);margin-left:auto}
+.exp-body{padding-bottom:28px}
+.exp-role{font-size:17px;font-weight:500;color:var(--txt);margin-bottom:4px}
+.exp-co{font-size:13px;color:var(--em);margin-bottom:10px;font-weight:400}
+.exp-desc{font-size:13.5px;color:var(--txt2);line-height:1.75;font-weight:300}
+
+/* skills */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:840px;width:100%}
+.skill-card{padding:24px}
+.skill-icon{font-size:24px;margin-bottom:14px}
+.skill-title{font-size:14px;font-weight:500;color:var(--txt);margin-bottom:12px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:7px}
+.stag{font-size:11px;padding:4px 11px;border-radius:20px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);color:var(--em3);letter-spacing:0.3px}
+.stag.pink{background:rgba(244,114,182,0.08);border-color:rgba(244,114,182,0.2);color:var(--pink)}
+
+/* certifications */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:840px;width:100%}
+.cert-card{padding:24px;display:flex;align-items:flex-start;gap:16px}
+.cert-badge{width:40px;height:40px;border-radius:12px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.cert-name{font-size:13.5px;font-weight:500;color:var(--txt);line-height:1.4;margin-bottom:4px}
+.cert-sub{font-size:11.5px;color:var(--txt3)}
+
+/* contact */
+.contact-card{max-width:580px;width:100%;text-align:center;padding:52px 48px}
+.contact-links{display:flex;flex-direction:column;gap:14px;margin-top:32px;text-align:left}
+.clink{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:14px;background:var(--glass2);border:1px solid var(--border-g);text-decoration:none;color:var(--txt2);font-size:14px;transition:all 0.3s}
+.clink:hover{border-color:var(--border-em);color:var(--em);background:rgba(16,185,129,0.06);transform:translateX(6px)}
+.clink-icon{width:38px;height:38px;border-radius:10px;background:rgba(16,185,129,0.12);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.clink-label{font-weight:500;color:var(--txt);font-size:13px;margin-bottom:2px}
+.clink-val{font-size:12px;color:var(--txt3)}
+
+/* scroll indicator */
+.scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--txt3);font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.scroll-mouse{width:22px;height:34px;border:1.5px solid var(--txt3);border-radius:11px;display:flex;justify-content:center;padding-top:6px}
+.scroll-wheel{width:3px;height:7px;background:var(--em);border-radius:2px;animation:scroll-anim 1.8s ease-in-out infinite}
+@keyframes scroll-anim{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(10px)}}
+
+/* theme toggle */
+.theme-toggle{
+  position:fixed;bottom:28px;right:28px;z-index:100;
+  width:46px;height:46px;border-radius:50%;
+  border:1px solid var(--border-g);background:rgba(10,15,13,0.85);
+  backdrop-filter:blur(20px);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;transition:all 0.3s;
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+.theme-toggle:hover{border-color:var(--border-em);transform:scale(1.1) rotate(15deg)}
+
+/* progress bar */
+.progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--em2),var(--em3),var(--pink));z-index:999;transition:width 0.08s linear}
+
+/* cursor glow */
+.cursor-glow{
+  position:fixed;pointer-events:none;z-index:9999;
+  width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(16,185,129,0.07),transparent 70%);
+  transform:translate(-50%,-50%);mix-blend-mode:screen;
+  transition:left 0.08s linear,top 0.08s linear;
+}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* section bg alternation */
+.sec-alt{background:linear-gradient(180deg,transparent,rgba(16,185,129,0.025),transparent)}
+
+/* footer */
+footer{position:relative;z-index:1;text-align:center;padding:32px 24px;color:var(--txt3);font-size:12px;letter-spacing:1px;border-top:1px solid var(--border-g)}
+footer em{color:var(--em);font-style:normal}
+
+/* LIGHT MODE */
+body.light{
+  --bg:#f0fdf8;--bg2:#e8faf3;--bg3:#ffffff;
+  --glass:rgba(255,255,255,0.65);--glass2:rgba(255,255,255,0.85);
+  --border-g:rgba(0,0,0,0.07);--border-em:rgba(5,150,105,0.35);
+  --txt:#0a1f14;--txt2:#2d5440;--txt3:#6b9980;
+  --em:#059669;--em2:#047857;--em3:#10b981;
+  --em-glow:rgba(5,150,105,0.2);
+}
+body.light .orb1,body.light .orb2,body.light .orb3{opacity:0.12}
+body.light nav{background:rgba(240,253,248,0.85)}
+body.light .theme-toggle{background:rgba(240,253,248,0.9)}
+body.light .cursor-glow{mix-blend-mode:multiply;background:radial-gradient(circle,rgba(5,150,105,0.05),transparent 70%)}
+
+/* responsive */
+@media(max-width:600px){
+  nav{gap:16px;padding:10px 18px}
+  nav a{font-size:12px}
+  .about-grid{grid-template-columns:1fr}
+  .about-main{grid-column:1}
+  .exp-item{grid-template-columns:90px 1fr;gap:0 12px}
+  .contact-card{padding:32px 24px}
+  section{padding:80px 16px 60px}
+}
+</style>
+</head>
+<body>
+
+<div class="orb-wrap">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <div class="nav-dot"></div>
+  <a href="#hero">Home</a>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="Toggle theme">🌙</button>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="hero">
+
+
+  <div class="hero-tag reveal">Portfolio · 2026</div>
+  <h1 class="name reveal">Nitisha <em>Sharma</em></h1>
+  <p class="hero-sub reveal">Project Manager &nbsp;·&nbsp; Finance &nbsp;·&nbsp; Strategy</p>
+
+  <div class="hero-pills reveal">
+    <span class="pill">📊 P&amp;L Optimization</span>
+    <span class="pill">🗂 Project Management</span>
+    <span class="pill">⚙️ Financial Modeling</span>
+    <span class="pill pink">✨ SAP FICO</span>
+    <span class="pill">📈 Business Strategy</span>
+    <span class="pill pink">🌿 Delhi NCR</span>
+  </div>
+
+  <div class="cta-row reveal">
+    <a class="btn btn-em" href="#contact">Get in touch</a>
+    <a class="btn btn-outline" href="#experience">View experience</a>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section id="about" class="sec-alt">
+  <div class="about-grid">
+
+    <div class="glass-card about-main reveal">
+      <div class="section-label">About me</div>
+      <h2 class="sec-title">Finance meets <em>strategy</em>,<br>driven by impact.</h2>
+      <p class="about-text">
+        I'm a results-driven Project Manager and Finance professional with proven expertise in financial modeling, strategic planning, and P&amp;L optimization. Skilled at delivering complex projects on time and within budget while managing large-scale operations.<br><br>
+        Strong analytical capabilities in Excel, financial forecasting, and data-driven decision making — with demonstrated success in identifying growth opportunities and implementing solutions that drive business profitability. Currently based in Ghaziabad, open to opportunities across Delhi NCR.
+      </p>
+    </div>
+
+    <div class="glass-card reveal" style="text-align:center;padding:32px 20px">
+      <div class="stat-num">14%</div>
+      <div class="stat-label">Profit margin boost</div>
+    </div>
+    <div class="glass-card reveal" style="text-align:center;padding:32px 20px">
+      <div class="stat-num">₹25Cr+</div>
+      <div class="stat-label">Spend tracked at ICICI</div>
+    </div>
+    <div class="glass-card reveal" style="text-align:center;padding:32px 20px">
+      <div class="stat-num">20+</div>
+      <div class="stat-label">BI reports delivered</div>
+    </div>
+    <div class="glass-card reveal" style="text-align:center;padding:32px 20px">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Event participants led</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ EXPERIENCE ══ -->
+<section id="experience">
+  <div class="exp-wrap">
+    <div class="section-label reveal" style="text-align:center">Career journey</div>
+    <h2 class="sec-title reveal" style="text-align:center;margin-bottom:52px">Where I've <em>worked</em></h2>
+
+    <div class="exp-item reveal">
+      <div class="exp-timeline">
+        <div class="exp-year">May –<br>Jun 2026</div>
+        <div class="exp-dot"></div>
+        <div class="exp-line"></div>
+      </div>
+      <div class="glass-card exp-body">
+        <div class="exp-role">Project Coordinator</div>
+        <div class="exp-co">INGSOL LLP · Noida</div>
+        <div class="exp-desc">Managed multiple concurrent projects using Zoho Books, achieving 95%+ on-time delivery rate. Tracked project budgets and identified cost optimisation opportunities, reducing operational expenses by 12%. Developed risk mitigation strategies and created KPI dashboards for management decision-making.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-timeline">
+        <div class="exp-year">Jul 2025 –<br>May 2026</div>
+        <div class="exp-dot"></div>
+        <div class="exp-line"></div>
+      </div>
+      <div class="glass-card exp-body">
+        <div class="exp-role">Management Trainee – Strategy</div>
+        <div class="exp-co">ICICI Prudential Life Insurance Co. Ltd. · Delhi</div>
+        <div class="exp-desc">Supported 3 new product launches through market research and competitive positioning. Developed pricing strategy models that increased profit margins by 14% on pilot products. Built Excel-based financial dashboards for real-time P&amp;L tracking across ₹25+ crore spend, and delivered 20+ business intelligence reports to senior leadership.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-timeline">
+        <div class="exp-year">Apr – Jul<br>2024</div>
+        <div class="exp-dot"></div>
+      </div>
+      <div class="glass-card exp-body">
+        <div class="exp-role">Investment Banking Intern</div>
+        <div class="exp-co">RITS Capitals · Noida</div>
+        <div class="exp-desc">Supported M&amp;A due diligence for 2 mid-market transactions and developed financial models for valuation analysis. Created investor pitch books and client materials. Conducted sector &amp; competitive research to identify investment opportunities.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ SKILLS ══ -->
+<section id="skills" class="sec-alt">
+  <div style="max-width:840px;width:100%">
+    <div class="section-label reveal" style="text-align:center">Expertise</div>
+    <h2 class="sec-title reveal" style="text-align:center;margin-bottom:40px">What I <em>bring</em> to the table</h2>
+    <div class="skills-grid">
+      <div class="glass-card skill-card reveal">
+        <div class="skill-icon">🗂</div>
+        <div class="skill-title">Project Management</div>
+        <div class="skill-tags">
+          <span class="stag">Planning</span><span class="stag">Execution</span>
+          <span class="stag">Risk Mgmt</span><span class="stag">Scope Control</span>
+          <span class="stag">Stakeholder Coordination</span><span class="stag">Quality Assurance</span>
+        </div>
+      </div>
+      <div class="glass-card skill-card reveal">
+        <div class="skill-icon">📊</div>
+        <div class="skill-title">Finance & Strategy</div>
+        <div class="skill-tags">
+          <span class="stag">Financial Modeling</span><span class="stag">P&L Optimization</span>
+          <span class="stag">Budgeting</span><span class="stag">Forecasting</span>
+          <span class="stag">Business Analysis</span><span class="stag">Strategic Planning</span>
+        </div>
+      </div>
+      <div class="glass-card skill-card reveal">
+        <div class="skill-icon">🔧</div>
+        <div class="skill-title">Tools & Systems</div>
+        <div class="skill-tags">
+          <span class="stag pink">SAP S/4HANA</span><span class="stag pink">SAP FICO</span>
+          <span class="stag">Excel (Advanced)</span><span class="stag">Zoho Books</span>
+        </div>
+      </div>
+      <div class="glass-card skill-card reveal">
+        <div class="skill-icon">🧠</div>
+        <div class="skill-title">Analytics</div>
+        <div class="skill-tags">
+          <span class="stag">Market Research</span><span class="stag">Competitive Analysis</span>
+          <span class="stag">Data Reporting</span><span class="stag">KPI Dashboards</span>
+        </div>
+      </div>
+      <div class="glass-card skill-card reveal">
+        <div class="skill-icon">🎓</div>
+        <div class="skill-title">Education</div>
+        <div class="skill-tags">
+          <span class="stag">PGDM Finance</span><span class="stag pink">JIMS Rohini</span>
+          <span class="stag">BA Pol Science</span><span class="stag">Delhi University</span>
+        </div>
+      </div>
+      <div class="glass-card skill-card reveal">
+        <div class="skill-icon">🌸</div>
+        <div class="skill-title">Leadership</div>
+        <div class="skill-tags">
+          <span class="stag">Executive Head</span><span class="stag pink">Club Coordinator</span>
+          <span class="stag">15+ Events Organised</span><span class="stag">500+ Participants</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- certifications -->
+    <h2 class="sec-title reveal" style="text-align:center;margin:56px 0 32px">My <em>certifications</em></h2>
+    <div class="cert-grid">
+      <div class="glass-card cert-card reveal">
+        <div class="cert-badge">🏅</div>
+        <div>
+          <div class="cert-name">SAP S/4HANA Finance & Controlling</div>
+          <div class="cert-sub">SAP Certified</div>
+        </div>
+      </div>
+      <div class="glass-card cert-card reveal">
+        <div class="cert-badge">🏅</div>
+        <div>
+          <div class="cert-name">SAP Financial Accounting & Management Accounting</div>
+          <div class="cert-sub">SAP FICO</div>
+        </div>
+      </div>
+      <div class="glass-card cert-card reveal">
+        <div class="cert-badge">🏅</div>
+        <div>
+          <div class="cert-name">Microsoft Excel – Advanced Formulas & Data Analysis</div>
+          <div class="cert-sub">Microsoft</div>
+        </div>
+      </div>
+      <div class="glass-card cert-card reveal">
+        <div class="cert-badge">🏅</div>
+        <div>
+          <div class="cert-name">Financial Modeling & Valuation</div>
+          <div class="cert-sub">Finance Certification</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+  <div class="contact-card glass-card reveal">
+    <div class="section-label">Let's connect</div>
+    <h2 class="sec-title">Open to <em>opportunities</em></h2>
+    <p style="font-size:14.5px;color:var(--txt2);line-height:1.75;margin-top:14px">
+      Looking for roles in Project Management, Operations, or Finance (FP&amp;A) across Delhi NCR. If you think I'd be a great fit — let's talk!
+    </p>
+    <div class="contact-links">
+      <a class="clink" href="mailto:anglesh18@gmail.com">
+        <div class="clink-icon">📧</div>
+        <div><div class="clink-label">Email</div><div class="clink-val">anglesh18@gmail.com</div></div>
+      </a>
+      <a class="clink" href="tel:+919873044595">
+        <div class="clink-icon">📱</div>
+        <div><div class="clink-label">Phone</div><div class="clink-val">+91 98730 44595</div></div>
+      </a>
+      <a class="clink" href="https://www.linkedin.com/in/nitisha-sharma-b05a59256/" target="_blank">
+        <div class="clink-icon">💼</div>
+        <div><div class="clink-label">LinkedIn</div><div class="clink-val">nitisha-sharma-b05a59256</div></div>
+      </a>
+      <a class="clink" href="Nitisha_Sharma_Resume.docx" download>
+        <!-- ✏️ Put your resume .docx in the same folder as this file -->
+        <div class="clink-icon">📄</div>
+        <div><div class="clink-label">Resume</div><div class="clink-val">Download my CV</div></div>
+      </a>
+    </div>
+    <p style="font-size:11px;color:var(--txt3);margin-top:32px;letter-spacing:1.5px">Based in Ghaziabad &nbsp;·&nbsp; Open to Delhi NCR &nbsp;·&nbsp; Available immediately</p>
+  </div>
+</section>
+
+<footer>
+  Crafted with 🌿 by <em>Nitisha Sharma</em> &nbsp;·&nbsp; 2026
+</footer>
+
+<script>
+/* ── cursor glow ── */
+const glow = document.getElementById('cursorGlow');
+document.addEventListener('mousemove', e => {
+  glow.style.left = e.clientX + 'px';
+  glow.style.top  = e.clientY + 'px';
+});
+
+/* ── scroll progress bar ── */
+const bar = document.getElementById('progressBar');
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  bar.style.width = Math.min(pct, 100) + '%';
+});
+
+/* ── reveal on scroll ── */
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(r => observer.observe(r));
+
+/* stagger cards */
+document.querySelectorAll('.about-grid .glass-card').forEach((el, i) => {
+  el.style.transitionDelay = (i * 80) + 'ms';
+});
+document.querySelectorAll('.skills-grid .glass-card').forEach((el, i) => {
+  el.style.transitionDelay = (i * 70) + 'ms';
+});
+document.querySelectorAll('.cert-grid .glass-card').forEach((el, i) => {
+  el.style.transitionDelay = (i * 80) + 'ms';
+});
+
+/* ── theme toggle ── */
+let dark = true;
+function toggleTheme() {
+  dark = !dark;
+  document.body.classList.toggle('light', !dark);
+  document.getElementById('themeBtn').textContent = dark ? '🌙' : '☀️';
+}
+
+
+</script>
+</body>
+</html>
